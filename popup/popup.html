@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Skullar</title>
+
+  <link rel="stylesheet" href="popup.css" />
+  <link rel="stylesheet" href="../styles/stars.css" />
+  <link rel="stylesheet" href="../styles/wave.css" />
+</head>
+
+<body>
+    <div class="wave-layer">
+        <svg viewBox="0 0 1440 320" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#ffffff" fill-opacity="0.03" d="M0,224L60,208C120,192,240,160,360,149.3C480,139,600,149,720,165.3C840,181,960,203,1080,197.3C1200,192,1320,160,1380,144L1440,128V320H0Z"></path>
+        <path fill="#ffffff" fill-opacity="0.05" d="M0,288L60,266.7C120,245,240,203,360,192C480,181,600,203,720,202.7C840,203,960,181,1080,154.7C1200,128,1320,96,1380,80L1440,64V320H0Z"></path>
+        </svg>
+    </div>
+
+    <canvas id="space"></canvas>
+
+    <div class="content">
+        <div class="header-panel">
+            <span class="site-name">Skullar</span>
+            <button class="settings-button">
+                <img src="../assets/gear.png" alt="Settings" />
+            </button>
+        </div>
+
+        <div class="launch-section">
+            
+            <div class="button-wrapper">
+                <div class="launch-button" id="send">
+                    <div class="text">Запуск</div>
+                    <div class="progress-bar"></div>
+                    <svg class="checkmark" viewBox="0 0 25 30">
+                        <path d="M2,19.2C5.9,23.6,9.4,28,9.4,28L23,2" />
+                    </svg>
+                </div>
+            </div>
+            
+            <div class="attempts-info-block">
+                <div class="attempts-info">
+                    Осталось попыток: <span id="attempts-count"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="limit-section">
+            <button class="limit-button">Увеличьте лимит</button>
+        </div>
+    </div>
+
+    <script type="module" src="popup.js"></script>
+    <script src="../utils/stars.js"></script>
+</body>
+
+</html>

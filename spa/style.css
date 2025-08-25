@@ -1,0 +1,122 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0;
+    overflow: hidden;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(0deg, rgb(14, 20, 56), rgb(5, 9, 28));
+    position: relative;
+}
+
+
+
+
+
+
+
+/* guide */
+
+.auth-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 40px;                
+    width: 400px;                  
+    backdrop-filter: blur(8px);
+    /* Add shadow */
+    color: #fff;
+    font-family: "Inter", sans-serif;
+    margin: 0 auto;
+}
+
+.title {
+    font-size: 30px;              
+    font-weight: bold;
+    margin-bottom: 20px;          
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+}
+
+.gear {
+    font-size: 25px;              
+    color: #71a8f7;
+}
+
+.img_block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.auth-image {
+  width: 225px;                  
+  margin: 0 auto 0px;
+  display: block;
+}
+
+
+.description {
+    font-size: 18px;              
+    line-height: 1.6;
+    margin-bottom: 24px;          
+    text-align: left;
+}
+
+.token-input {
+    width: 100%;
+    padding: 14px;              
+    font-size: 16px;              
+    border-radius: 8px;
+    border: none;
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    margin-bottom: 16px;
+}
+
+.token-input::placeholder {
+    color: #ccc;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 14px;               
+    font-size: 16px;             
+    background: #4e6ef2;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-bottom: 16px;
+    transition: 0.2s;
+}
+
+.submit-btn:hover {
+    background: #3f5ce0;
+}
+
+.tg-link {
+    display: block;
+    text-align: left;
+    color: #7cb8ff;
+    text-decoration: none;
+    font-size: 16px;            
+}
+
+.tg-link:hover {
+    text-decoration: underline;
+}
