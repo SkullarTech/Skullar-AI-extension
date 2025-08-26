@@ -10,6 +10,7 @@ let max_attempts; // Макс кол-во попыток
 
 const button = document.getElementById("send");
 const attempts_block = document.getElementById("attempts-count");
+const blur_block = document.getElementById("blur-block");
 
 button.addEventListener("click", () => {
     if (currentProgress === 0 && attempts_count > 0) {
@@ -30,5 +31,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     attempts_count = token.daily_attempts;
     max_attempts = token.max_attempts;
     attempts_block.innerHTML = `${attempts_count}/${max_attempts}`;
+
+    blur_block.classList.add('shrink-animation');
+
+    blur_block.addEventListener('animationend', () => {
+        blur_block.style.display = 'none'; 
+    });
 });
 

@@ -190,8 +190,9 @@ body {
 
 
 .attempts-info {
+    position: relative;
     display: flex;
-    justify-content: start;
+    justify-content: space-between;
     align-content: start;
     width: 100%;
     font-size: 16px;
@@ -201,7 +202,17 @@ body {
 #attempts-count {
     color: white;
     font-weight: 500;
-    margin-left: 10px;
+    margin-right: 5px;
+}
+
+.attempts-count-block {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    position: relative;
+    margin-right: 5px;
+    width: 23%;
+    min-height: 100%;
 }
 
 
@@ -229,4 +240,33 @@ body {
 
 .limit-button:hover {
     color: #a6d0ff;
+}
+
+
+
+
+/* Blur */
+
+#blur-block {
+    position: absolute;
+    width: 100%; height: 100%;
+    right: 0;
+    border-radius: 5px;
+    background: rgba(47, 47, 47, 0.847);
+    backdrop-filter: blur(5px);
+    z-index: 10; /* Поверх текста */
+}
+
+.shrink-animation {
+    animation: Shrink 0.4s ease;
+}
+
+/* Анимация сжатия */
+@keyframes Shrink {
+    0% {
+        width: 100%; 
+    }
+    100% {
+        width: 0%;
+    }
 }
