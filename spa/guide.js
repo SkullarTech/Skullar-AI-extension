@@ -32,7 +32,7 @@ export function renderGuide(container) {
         const tokenData = await fetchToken(token);
 
         if (tokenData) {
-            chrome.storage.local.set({ autosolve_token: token }, () => {
+            chrome.storage.local.set({ auth_token: token }, () => {
                 alert("✅ Токен сохранён!");
                 window.close();
             });

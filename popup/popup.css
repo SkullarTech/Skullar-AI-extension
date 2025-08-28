@@ -258,7 +258,7 @@ body {
 }
 
 .shrink-animation {
-    animation: Shrink 0.4s ease;
+    animation: Shrink 0.4s ease forwards;
 }
 
 /* Анимация сжатия */
@@ -268,5 +268,6 @@ body {
     }
     100% {
         width: 0%;
+        display: none;
     }
 }

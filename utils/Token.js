@@ -37,8 +37,8 @@ export async function fetchToken(token) {
 
 export function getTokenFromStorage(redirectUrl, closePopup = false) {
   return new Promise((resolve) => {
-    chrome.storage.local.get("autosolve_token", (result) => {
-      const token = result.autosolve_token;
+    chrome.storage.local.get("auth_token", (result) => {
+      const token = result.auth_token;
 
       if (!token) {
         chrome.tabs.create({ url: redirectUrl });

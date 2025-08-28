@@ -33,9 +33,5 @@ document.addEventListener("DOMContentLoaded", async () => {
     attempts_block.innerHTML = `${attempts_count}/${max_attempts}`;
 
     blur_block.classList.add('shrink-animation');
-
-    blur_block.addEventListener('animationend', () => {
-        blur_block.style.display = 'none'; 
-    });
 });
 
