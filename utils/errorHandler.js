@@ -1,0 +1,23 @@
+// utils/errorHandler.js
+
+import { resetButton } from '../popup/animation.js';
+
+const notification_text = document.getElementById("notification-text");
+const notification = document.getElementById("notification");
+
+export async function getErrorText(code) {
+    console.log(code);
+    const url = chrome.runtime.getURL('assets/errors.json');
+    const response = await fetch(url);
+    const errors = await response.json();
+    return errors[code] || 'Неизвестная ошибка';
+}
+
+export async function handleError(error) {
+    await getErrorText(error).then(msg => {
+        notification_text.innerText = msg;
+        notification.classList.add('active');
+        resetButton();
+    });
+}
+

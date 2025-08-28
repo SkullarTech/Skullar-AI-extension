@@ -4,6 +4,7 @@ import { getPageHTML } from './getPageHTML.js';
 import { sendHTMLToServer } from './sendToServer.js';
 import { performActions } from './performActions.js';
 import { animateTo } from '../popup/animation.js';
+import { handleError } from '../utils/errorHandler.js';
 
 
 // Основной обработчик кнопки
@@ -36,6 +37,6 @@ export async function handleButtonClick() {
         }
 
     } catch (error) {
-        console.error("Ошибка выполнения:", error.message);
+        await handleError(error.message); // Показать ошибку в popup
     }
 }

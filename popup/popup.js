@@ -11,11 +11,17 @@ let max_attempts; // Макс кол-во попыток
 const button = document.getElementById("send");
 const attempts_block = document.getElementById("attempts-count");
 const blur_block = document.getElementById("blur-block");
+const notification = document.getElementById("notification");
+const notification_btn = document.getElementById("notification-btn");
 
 button.addEventListener("click", () => {
     if (currentProgress === 0 && attempts_count > 0) {
         handleButtonClick();
     }
+});
+
+notification_btn.addEventListener("click", () => {
+    notification.classList.remove('active');
 });
 
 // Проверяем есть ли токен
