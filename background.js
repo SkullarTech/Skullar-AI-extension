@@ -1,4 +1,4 @@
-import { getTokenFromStorage } from "./utils/Token.js";
+import { getTokenFromStorage } from "./utils/storage.js";
 import { CONFIG } from "./utils/config.js";
 
 

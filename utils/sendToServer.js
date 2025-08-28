@@ -1,7 +1,7 @@
 // utils/sendToServer.js
 
 import { CONFIG } from "./config.js";
-import { getTokenFromStorage } from "./Token.js";
+import { getTokenFromStorage } from "./storage.js";
 
 const SERVER_URL = `${CONFIG.API_BASE_URL}/process`;
 

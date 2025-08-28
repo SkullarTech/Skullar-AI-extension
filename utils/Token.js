@@ -1,4 +1,4 @@
-// utils/checkToken.js
+// utils/token.js
 
 import { CONFIG } from "./config.js";
 
@@ -31,29 +31,6 @@ export async function fetchToken(token) {
         console.error("Ошибка при получении токена:", error);
         return null;
     }
-}
-
-
-
-export function getTokenFromStorage(redirectUrl, closePopup = false) {
-  return new Promise((resolve) => {
-    chrome.storage.local.get("auth_token", (result) => {
-      const token = result.auth_token;
-
-      if (!token) {
-        chrome.tabs.create({ url: redirectUrl });
-
-        if (closePopup) {
-          window.close();
-        }
-
-        resolve(null);
-        
-      } else {
-        resolve(token);
-      }
-    });
-  });
 }
 
 

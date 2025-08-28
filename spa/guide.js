@@ -1,6 +1,6 @@
 // spa/guide.js
 
-import { fetchToken } from "../utils/Token.js";
+import { fetchToken } from "../utils/token.js";
 
 export function renderGuide(container) {
 

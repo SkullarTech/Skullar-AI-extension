@@ -2,7 +2,8 @@
 
 import { animateTo, currentProgress } from './animation.js';
 import { handleButtonClick } from '../utils/handleClick.js';
-import { fetchToken, getTokenFromStorage } from "../utils/Token.js";
+import { fetchToken } from "../utils/token.js";
+import { getTokenFromStorage } from "../utils/storage.js";
 import { CONFIG } from "../utils/config.js";
 
 let attempts_count; // Кол-во оставшихся попыток
