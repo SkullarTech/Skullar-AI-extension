@@ -1,7 +1,7 @@
 // utils/token.js
 
 import { CONFIG } from "./config.js";
-import { handleError } from '../utils/errorHandler.js';
+import { handleError } from './errorHandler.js';
 
 const SERVER_URL_CHECK = `${CONFIG.API_BASE_URL}/check-token`;
 const SERVER_URL_GET = `${CONFIG.API_BASE_URL}/get-token`;

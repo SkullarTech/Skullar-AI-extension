@@ -2,6 +2,7 @@
 
 import { CONFIG } from "./config.js";
 import { getTokenFromStorage } from "./storage.js";
+import { handleError } from '../utils/errorHandler.js';
 
 const SERVER_URL = `${CONFIG.API_BASE_URL}/process`;
 
@@ -10,6 +11,7 @@ export async function sendHTMLToServer(html) {
     const key = await getTokenFromStorage(); 
 
     if (!key) {
+        await handleError("404"); // Показать ошибку в popup
         throw new Error("Токен не найден в хранилище");
     }
 
@@ -22,6 +24,7 @@ export async function sendHTMLToServer(html) {
     });
 
     if (!response.ok) {
+        await handleError(response.status); // Показать ошибку в popup
         throw new Error(`Ошибка сервера: ${response.status}`);
     }
 

@@ -14,7 +14,8 @@ export async function getErrorText(code) {
 }
 
 export async function handleError(error) {
-    await getErrorText(error).then(msg => {
+    const code = String(error).match(/\d{3}/)?.[0] || String(error);
+    await getErrorText(code).then(msg => {
         notification_text.innerText = msg;
         notification.classList.add('active');
         resetButton();
