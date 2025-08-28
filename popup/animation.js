@@ -1,9 +1,11 @@
 // popup/animation.js
 
-export const button = document.getElementById("send");
-export const text = button.querySelector(".text");
-export const bar = button.querySelector(".progress-bar");
-export const check = button.querySelector(".checkmark");
+const button = document.getElementById("send");
+const text = button ? button.querySelector(".text") : null;
+const bar = button ? button.querySelector(".progress-bar") : null;
+const check = button ? button.querySelector(".checkmark") : null;
+
+export { button, text, bar, check };
 
 let animationCanceled = false;
 export let currentProgress = 0;

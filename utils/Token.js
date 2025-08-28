@@ -1,6 +1,7 @@
 // utils/token.js
 
 import { CONFIG } from "./config.js";
+import { handleError } from '../utils/errorHandler.js';
 
 const SERVER_URL_CHECK = `${CONFIG.API_BASE_URL}/check-token`;
 const SERVER_URL_GET = `${CONFIG.API_BASE_URL}/get-token`;
@@ -18,17 +19,19 @@ export async function fetchToken(token) {
         });
 
         if (!response.ok) {
+            await handleError(response.status);
+            
             if (response.status === 404) {
                 return null; // токен не найден
             }
-            console.warn("Ошибка при запросе:", response.status);
+
             return null;
         }
 
         return await response.json(); // вернёт объект токена
 
     } catch (error) {
-        console.error("Ошибка при получении токена:", error);
+        await handleError(error.message); // Показать ошибку в popup
         return null;
     }
 }
