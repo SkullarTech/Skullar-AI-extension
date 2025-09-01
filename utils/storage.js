@@ -1,22 +1,28 @@
 // utils/storage.js
 
-export function getTokenFromStorage(redirectUrl, closePopup = false) {
-  return new Promise((resolve) => {
-    chrome.storage.local.get("auth_token", (result) => {
-      const token = result.auth_token;
+import { CONFIG } from "../utils/config.js";
 
-      if (!token) {
-        chrome.tabs.create({ url: redirectUrl });
+export function getTokenFromStorage(closePopup = false) {
+    return new Promise((resolve) => {
 
-        if (closePopup) {
-          window.close();
-        }
+        // URL страницы с инструкцией
+        const redirectUrl = `chrome-extension://${chrome.runtime.id}${CONFIG.PATH_TO_START}`;
 
-        resolve(null);
-        
-      } else {
-        resolve(token);
-      }
+        chrome.storage.local.get("auth_token", (result) => {
+            const token = result.auth_token;
+
+            if (!token) {
+                chrome.tabs.create({ url: redirectUrl });
+
+                if (closePopup) {
+                    window.close();
+                }
+
+                resolve(null);
+                
+            } else {
+                resolve(token);
+            }
+        });
     });
-  });
 }

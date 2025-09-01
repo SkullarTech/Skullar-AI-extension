@@ -4,7 +4,6 @@ import { animateTo, currentProgress } from './animation.js';
 import { handleButtonClick } from '../utils/handleClick.js';
 import { fetchToken } from "../utils/token.js";
 import { getTokenFromStorage } from "../utils/storage.js";
-import { CONFIG } from "../utils/config.js";
 
 let attempts_count; // Кол-во оставшихся попыток
 let max_attempts; // Макс кол-во попыток
@@ -53,9 +52,7 @@ stealth_item.addEventListener("click", (event) => {
 
 // Проверяем есть ли токен
 document.addEventListener("DOMContentLoaded", async () => {
-    const guideUrl = `chrome-extension://${chrome.runtime.id}${CONFIG.PATH_TO_GUIDE}`;
-    const key = await getTokenFromStorage(guideUrl, true);
-
+    const key = await getTokenFromStorage(true);
     if (!key) return;
 
     const token = await fetchToken(key);

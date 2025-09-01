@@ -1,9 +1,11 @@
 import { getTokenFromStorage } from "./utils/storage.js";
-import { CONFIG } from "./utils/config.js";
 
-function openGuide() {
-    const guideUrl = `chrome-extension://${chrome.runtime.id}${CONFIG.PATH_TO_START}`;
-    getTokenFromStorage(guideUrl);
+async function openGuide() {
+    try {
+        await getTokenFromStorage();
+    } catch (error) {
+        console.error("Ошибка:", error);
+    }
 }
 
 chrome.runtime.onInstalled.addListener(openGuide);
