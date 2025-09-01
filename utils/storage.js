@@ -8,7 +8,7 @@ export function getTokenFromStorage(closePopup = false) {
         // URL страницы с инструкцией
         const redirectUrl = `chrome-extension://${chrome.runtime.id}${CONFIG.PATH_TO_START}`;
 
-        chrome.storage.local.get("auth_token", (result) => {
+        chrome.storage.local.get(CONFIG.TOKEN_KEY, (result) => {
             const token = result.auth_token;
 
             if (!token) {
