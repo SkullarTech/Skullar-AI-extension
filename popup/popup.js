@@ -20,6 +20,7 @@ const settings_btn = document.getElementById("settings-button");
 
 const stealth_toggle = document.querySelector('#stealth-toggle input');
 const stealth_item = document.getElementById('stealth-item');
+const logout_item = document.getElementById('logout-item');
 
 
 button.addEventListener("click", () => {
@@ -47,6 +48,11 @@ settings.addEventListener("click", (event) => {
 stealth_item.addEventListener("click", (event) => {
     stealth_toggle.checked = !stealth_toggle.checked;
     stealth_toggle.dispatchEvent(new Event('change'));
+});
+
+logout_item.addEventListener("click", async () => {
+    chrome.storage.local.remove('auth_token');
+    window.location.reload();
 });
 
 
