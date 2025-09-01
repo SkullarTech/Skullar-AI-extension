@@ -25,7 +25,7 @@
     <div class="content">
         <div class="header-panel">
             <span class="site-name">Skullar</span>
-            <button class="settings-button">
+            <button class="settings-button" id="settings-button">
                 <img src="../assets/gear.png" alt="Settings" />
             </button>
         </div>
@@ -54,6 +54,41 @@
 
         <div class="limit-section">
             <button class="limit-button">Увеличьте лимит</button>
+        </div>
+    </div>
+
+    <!-- Настройки -->
+    <div id="settings">
+        <div class="settings-content">
+
+            <div class="settings-item" id="stealth-item">
+                <div class="setting-label">
+                    <div class="setting-icon"><img src="../assets/spy.png"></div>
+                    <span>Стелс-режим</span>
+                </div>
+                <label class="switch" id="stealth-toggle">
+                    <input type="checkbox">
+                    <span class="slider"></span>
+                </label>
+            </div>
+
+            <div class="settings-item">
+                <div class="setting-label">
+                    <div class="setting-icon"><img src="../assets/language.png"></div>
+                    <span>Язык</span>
+                </div>
+                <img src="../assets/right-arrow.png" class="setting-language-flag">
+            </div>
+
+            <div class="setting-line"></div>
+
+            <div class="settings-item">
+                <div class="setting-label">
+                    <div class="setting-icon"><img src="../assets/logout.png"></div>
+                    <span>Выйти</span>
+                </div>
+            </div>
+
         </div>
     </div>
 
