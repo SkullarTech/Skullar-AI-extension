@@ -1,28 +1,34 @@
 // utils/handleClick.js
 
-import { getPageHTML } from './getPageHTML.js';
-import { sendHTMLToServer } from './sendToServer.js';
-import { performActions } from './performActions.js';
-import { animateTo } from '../popup/animation.js';
-import { handleError } from '../utils/errorHandler.js';
-
+import { sendError } from "./message-sender.js";
 
 // Основной обработчик кнопки
 export async function handleButtonClick() {
     try {
-        await animateTo(5);
-        const { html, tabId } = await getPageHTML(); // 1s
+        
+        const response = await new Promise((resolve, reject) => {
+            chrome.runtime.sendMessage({ type: 'start-action' }, (response) => {
 
-        await animateTo(75);
-        const actions = await sendHTMLToServer(html); // тратит больше всего времени
+                if (chrome.runtime.lastError) {
+                    reject(new Error(chrome.runtime.lastError.message));
+                    return;
+                }
 
-        await animateTo(90); 
-        await performActions(tabId, actions);
-
-        animateTo(95);
-        console.log("Действия успешно выполнены");   // 1s
-
-        await animateTo(100);  // КОНЕЦ ???
+                if (response?.status === 'completed') {
+                    console.log('Процесс успешно запущен в фоне');
+                    resolve(response);
+                } 
+                
+                else if (response?.status === 'error') {
+                    console.error('Ошибка в процессе:', response.error);
+                    reject(new Error(response.error));
+                } 
+                
+                else {
+                    resolve(response);
+                }
+            });
+        });
 
         // Обновление попыток на странице
         const attemptsBlock = document.getElementById("attempts-count");
@@ -37,6 +43,6 @@ export async function handleButtonClick() {
         }
 
     } catch (error) {
-        await handleError(error.message); // Показать ошибку в popup
+        sendError(error.message); // Показать ошибку в popup
     }
 }

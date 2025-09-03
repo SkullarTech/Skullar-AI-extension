@@ -4,6 +4,7 @@ import { animateTo, currentProgress } from './animation.js';
 import { handleButtonClick } from '../utils/handleClick.js';
 import { fetchToken } from "../utils/token.js";
 import { getTokenFromStorage } from "../utils/storage.js";
+import { handleError } from '../utils/errorHandler.js';
 
 let attempts_count; // Кол-во оставшихся попыток
 let max_attempts; // Макс кол-во попыток
@@ -69,5 +70,17 @@ document.addEventListener("DOMContentLoaded", async () => {
     attempts_block.innerHTML = `${attempts_count}/${max_attempts}`;
 
     blur_block.classList.add('shrink-animation');
+});
+
+
+
+chrome.runtime.onMessage.addListener(async (message) => {
+    if (message.type === 'progress') {
+        await animateTo(message.value);
+    }
+
+    else if (message.type === 'error') {
+        await handleError(message.value);
+    }
 });
 

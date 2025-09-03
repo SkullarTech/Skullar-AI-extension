@@ -1,11 +1,17 @@
 // popup/animation.js
 
-const button = document.getElementById("send");
-const text = button ? button.querySelector(".text") : null;
-const bar = button ? button.querySelector(".progress-bar") : null;
-const check = button ? button.querySelector(".checkmark") : null;
+export let button, text, bar, check, img;
 
-export { button, text, bar, check };
+// Инициализация элементов DOM после загрузки документа
+document.addEventListener("DOMContentLoaded", () => {
+    button = document.getElementById("send");
+    if (button) {
+        text = button.querySelector(".text");
+        bar = button.querySelector(".progress-bar");
+        check = button.querySelector(".checkmark");
+        img = button.querySelector("img");
+    }
+});
 
 let animationCanceled = false;
 export let currentProgress = 0;
