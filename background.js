@@ -2,7 +2,7 @@ import { getTokenFromStorage } from "./utils/storage.js";
 import { performActions } from './utils/performActions.js';
 import { sendHTMLToServer } from './utils/sendToServer.js';
 import { getPageHTML } from './utils/getPageHTML.js';
-import { sendProgress } from './utils/message-sender.js';
+import { sendProgress, sendError } from './utils/message-sender.js';
 
 export async function handleButtonClickBackground() {
     try {
@@ -25,7 +25,7 @@ export async function handleButtonClickBackground() {
         sendProgress(100);  // КОНЕЦ ???
 
     } catch (error) {
-        chrome.runtime.sendMessage({ type: 'error', error: error.message || error });
+        sendError(error.message); // Показать ошибку в popup
     }
 }
 
