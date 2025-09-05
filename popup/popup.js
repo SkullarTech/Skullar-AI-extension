@@ -2,8 +2,6 @@
 
 import { animateTo, currentProgress } from './animation.js';
 import { handleButtonClick } from '../utils/handleClick.js';
-import { fetchToken } from "../utils/token.js";
-import { getTokenFromStorage } from "../utils/storage.js";
 import { handleError } from '../utils/errorHandler.js';
 
 let attempts_count; // Кол-во оставшихся попыток
@@ -59,10 +57,7 @@ logout_item.addEventListener("click", async () => {
 
 // Проверяем есть ли токен
 document.addEventListener("DOMContentLoaded", async () => {
-    const key = await getTokenFromStorage(true);
-    if (!key) return;
-
-    const token = await fetchToken(key);
+    const { token } = await chrome.runtime.sendMessage({ type: 'get-token' });
     if (!token) return;
 
     attempts_count = token.daily_attempts;
