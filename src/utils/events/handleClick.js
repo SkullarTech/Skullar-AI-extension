@@ -1,6 +1,6 @@
-// utils/handleClick.js
+// src/utils/events/handleClick.js
 
-import { sendError } from "./message-sender.js";
+import { sendError } from "../messaging/message-sender.js";
 
 // Основной обработчик кнопки
 export async function handleButtonClick() {

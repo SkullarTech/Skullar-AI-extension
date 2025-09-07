@@ -1,4 +1,4 @@
-// utils/performActions.js
+// src/utils/dom/performActions.js
 
 /**
  * Выполняет действия на странице в указанной вкладке.

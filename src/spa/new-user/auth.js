@@ -1,12 +1,12 @@
-// spa/new-user/auth.js
+// src/spa/new-user/auth.js
 
 export async function init(container) {
     const submitBtn = container.querySelector("#submit");
     const tokenInput = container.querySelector("#token");
 
     // Динамически импортируем модуль токена
-    const tokenModuleUrl = chrome.runtime.getURL('utils/token.js');
-    const configModuleUrl = chrome.runtime.getURL('utils/config.js');
+    const tokenModuleUrl = chrome.runtime.getURL('src/utils/api/token.js');
+    const configModuleUrl = chrome.runtime.getURL('src/constants/config.js');
     const { fetchToken } = await import(tokenModuleUrl);
     const { CONFIG } = await import(configModuleUrl);
 

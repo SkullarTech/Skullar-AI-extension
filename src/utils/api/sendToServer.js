@@ -1,8 +1,8 @@
-// utils/sendToServer.js
+// src/utils/api/sendToServer.js
 
-import { CONFIG } from "./config.js";
-import { getTokenFromStorage } from "./storage.js";
-import { sendError } from "./message-sender.js";
+import { CONFIG } from "../../constants/config.js";
+import { getTokenFromStorage } from "../storage/storage.js";
+import { sendError } from "../messaging/message-sender.js";
 
 const SERVER_URL = `${CONFIG.API_BASE_URL}/process`;
 

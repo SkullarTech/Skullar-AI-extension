@@ -1,8 +1,8 @@
-// popup/popup.js
+// src/popup/popup.js
 
 import { animateTo, currentProgress } from './animation.js';
-import { handleButtonClick } from '../utils/handleClick.js';
-import { handleError } from '../utils/errorHandler.js';
+import { handleButtonClick } from '../utils/events/handleClick.js';
+import { handleError } from '../utils/ui/errorHandler.js';
 
 let attempts_count; // Кол-во оставшихся попыток
 let max_attempts; // Макс кол-во попыток

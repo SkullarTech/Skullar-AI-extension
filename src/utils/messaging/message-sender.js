@@ -1,4 +1,4 @@
-// utils/message-sender.js
+// src/utils/messaging/message-sender.js
 
 export function sendError(value) {
     chrome.runtime.sendMessage({ type: 'error', value });

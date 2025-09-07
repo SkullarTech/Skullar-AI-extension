@@ -1,4 +1,4 @@
-// spa/router.js
+// src/spa/router.js
 
 const app = document.getElementById('app');
 const Page_Not_Found = '<h1>Страница не найдена</h1>';

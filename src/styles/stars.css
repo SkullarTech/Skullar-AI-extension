@@ -1,0 +1,8 @@
+#space {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none; /* чтобы не мешал кликам */
+    z-index: 0; /* чтобы был фоном */
+    background: transparent; /* прозрачный фон */
+}

@@ -1,7 +1,7 @@
-// utils/token.js
+// src/utils/api/token.js
 
-import { CONFIG } from "./config.js";
-import { sendError } from "./message-sender.js";
+import { CONFIG } from "../../constants/config.js";
+import { sendError } from "../messaging/message-sender.js";
 
 const SERVER_URL_CHECK = `${CONFIG.API_BASE_URL}/check-token`;
 const SERVER_URL_GET = `${CONFIG.API_BASE_URL}/get-token`;

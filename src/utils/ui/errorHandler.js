@@ -1,10 +1,10 @@
-// utils/errorHandler.js
+// src/utils/ui/errorHandler.js
 
-import { resetButton } from '../popup/animation.js';
+import { resetButton } from '../../popup/animation.js';
 
 export async function getErrorText(code) {
     console.log(code);
-    const url = chrome.runtime.getURL('assets/errors.json');
+    const url = chrome.runtime.getURL('assets/data/errors.json');
     const response = await fetch(url);
     const errors = await response.json();
     return errors[code] || 'Неизвестная ошибка';

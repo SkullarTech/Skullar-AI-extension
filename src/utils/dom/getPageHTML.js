@@ -1,4 +1,4 @@
-// utils/getPageHTML.js
+// src/utils/dom/getPageHTML.js
 
 // Получение HTML страницы
 export async function getPageHTML() {

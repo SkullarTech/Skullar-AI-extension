@@ -1,8 +1,8 @@
-// utils/storage.js
+// src/utils/storage/storage.js
 
-import { CONFIG } from "../utils/config.js";
+import { CONFIG } from "../../constants/config.js";
 
-export function getTokenFromStorage(closePopup = false) {
+export function getTokenFromStorage() {
     return new Promise((resolve) => {
 
         // URL страницы с инструкцией
@@ -13,10 +13,6 @@ export function getTokenFromStorage(closePopup = false) {
 
             if (!token) {
                 chrome.tabs.create({ url: redirectUrl });
-
-                if (closePopup) {
-                    window.close();
-                }
 
                 resolve(null);
                 

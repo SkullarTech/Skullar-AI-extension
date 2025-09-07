@@ -1,15 +1,15 @@
-import { getTokenFromStorage } from "./utils/storage.js";
-import { performActions } from './utils/performActions.js';
-import { sendHTMLToServer } from './utils/sendToServer.js';
-import { getPageHTML } from './utils/getPageHTML.js';
-import { sendProgress, sendError } from './utils/message-sender.js';
-import { fetchToken } from "../utils/token.js";
+import { getTokenFromStorage } from "../utils/storage/storage.js";
+import { performActions } from '../utils/dom/performActions.js';
+import { sendHTMLToServer } from '../utils/api/sendToServer.js';
+import { getPageHTML } from '../utils/dom/getPageHTML.js';
+import { sendProgress, sendError } from '../utils/messaging/message-sender.js';
+import { fetchToken } from "../utils/api/token.js";
 
 
 async function handleGetToken() {
     try {
 
-        const key = await getTokenFromStorage(true);
+        const key = await getTokenFromStorage();
         if (!key) {
             return { token: null };  
         }
