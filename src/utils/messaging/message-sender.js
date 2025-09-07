@@ -7,3 +7,7 @@ export function sendError(value) {
 export function sendProgress(value) {
     chrome.runtime.sendMessage({ type: 'progress', value });
 }
+
+export function closePopup() {
+    chrome.runtime.sendMessage({ type: 'close-popup' });
+}

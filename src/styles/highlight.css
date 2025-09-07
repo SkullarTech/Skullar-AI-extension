@@ -1,0 +1,55 @@
+.highlighted {
+    cursor: pointer !important;
+    outline: 3px solid cyan;
+    background-color: rgba(0,150,255,0.2);
+    pointer-events: auto; 
+}
+
+.selected-indicator {
+    outline: 3px solid rgb(154, 0, 0);
+}
+
+#launch-button {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    top: 20px;
+    left: 20px;
+
+    font-size: 22px;
+    font-weight: 700;
+    color: white;
+    padding: 12px 12px;
+
+    z-index: 1000000;
+
+    background: rgba(0, 0, 0, 0.6); /* Тёмный фон для контраста с белым */
+    backdrop-filter: blur(0px); /* размытие фона за кнопкой */
+    -webkit-backdrop-filter: blur(0px); /* для Safari */
+    
+    border: 1.8px solid rgba(255, 255, 255, 0.5); /* Светлая обводка с большей прозрачностью */
+    border-radius: 16px;
+
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.2); /* Тень для выделения */
+
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease, backdrop-filter 0.4s ease;
+}
+
+#launch-button:hover {
+    background: rgba(0, 0, 0, 0.75); /* Ещё более тёмный фон при наведении */
+    transform: scale(1.02);
+    backdrop-filter: blur(2px); /* размытие фона за кнопкой */
+    -webkit-backdrop-filter: blur(2px); /* для Safari */
+}
+
+#launch-button img {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert(1); /* Инверсия для белого img, чтобы сделать его видимым */
+}
+
+
+

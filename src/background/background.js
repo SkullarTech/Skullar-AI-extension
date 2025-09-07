@@ -2,7 +2,7 @@ import { getTokenFromStorage } from "../utils/storage/storage.js";
 import { performActions } from '../utils/dom/performActions.js';
 import { sendHTMLToServer } from '../utils/api/sendToServer.js';
 import { getPageHTML } from '../utils/dom/getPageHTML.js';
-import { sendProgress, sendError } from '../utils/messaging/message-sender.js';
+import { sendProgress, sendError, closePopup } from '../utils/messaging/message-sender.js';
 import { fetchToken } from "../utils/api/token.js";
 
 
@@ -25,12 +25,48 @@ async function handleGetToken() {
 
 }
 
+function openExtensionPopup() {
+    return new Promise((resolve, reject) => {
+        chrome.windows.getLastFocused({}, ({ focused }) => {
+            if (!focused) {
+                return setTimeout(() => openExtensionPopup().then(resolve, reject), 500);
+            }
+            chrome.action.openPopup(() =>
+                chrome.runtime.lastError ? reject(chrome.runtime.lastError) : resolve()
+            );
+        });
+    });
+}
+
 
 export async function handleButtonClickBackground() {
     try {
-        sendProgress(5);
+        let { html, tabId } = await getPageHTML();
 
-        const { html, tabId } = await getPageHTML();
+        if (!html) {
+            closePopup();
+
+            const selectedItems = await new Promise((resolve, reject) => {
+                chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+                    if (tabs[0]?.id) {
+                        chrome.tabs.sendMessage(tabs[0].id, { action: "enableSelection" }, (response) => {
+                            if (chrome.runtime.lastError) {
+                                reject(chrome.runtime.lastError);
+                            } else {
+                                resolve(response.selectedItems);
+                            }
+                        });
+                    } else {
+                        reject(new Error("No active tab found"));
+                    }
+                });
+            });
+
+            html = JSON.stringify(selectedItems, null, 2);
+            console.log('Selected items HTML:', html);
+
+            await openExtensionPopup();
+        }
 
         sendProgress(75);
 

@@ -77,5 +77,9 @@ chrome.runtime.onMessage.addListener(async (message) => {
     else if (message.type === 'error') {
         await handleError(message.value);
     }
+
+    else if (message.type === 'close-popup') {
+        window.close()
+    }
 });
 
