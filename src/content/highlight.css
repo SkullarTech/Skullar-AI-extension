@@ -1,7 +1,7 @@
 .highlighted {
     cursor: pointer !important;
     outline: 3px solid cyan;
-    background-color: rgba(0,150,255,0.2);
+    background-color: rgba(0,150,255,0.35);
     pointer-events: auto; 
 }
 

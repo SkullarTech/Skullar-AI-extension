@@ -63,6 +63,7 @@ export async function handleButtonClickBackground() {
             });
 
             html = JSON.stringify(selectedItems, null, 2);
+            html = html.replace(/\\"/g, '"');
             console.log('Selected items HTML:', html);
 
             await openExtensionPopup();

@@ -23,8 +23,9 @@ function initializeHandlers(list, getHighlightingState) {
 }
 
 function handleClick(element, list) {
-    const xpath = getXPath(element);
+    element.classList.remove('highlighted');
 
+    const xpath = getXPath(element);
     const object = {
         element: element.outerHTML, 
         xpath: xpath
