@@ -27,9 +27,13 @@
     "content_scripts": [
         {
             "matches": ["<all_urls>"],
-            "js": ["src/content/content.js"],
-            "css": ["src/styles/highlight.css"],
-            "run_at": "document_idle"
+            "js": [
+                "src/content/utils.js",
+                "src/content/handlers.js",
+                "src/content/content.js"
+            ],
+            "css": ["src/content/highlight.css"],
+            "run_at": "document_start"
         }
     ],
     "icons": {
