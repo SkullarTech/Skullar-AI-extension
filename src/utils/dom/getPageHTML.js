@@ -1,5 +1,7 @@
 // src/utils/dom/getPageHTML.js
 
+import { CONFIG } from "../../constants/config.js";
+
 // Получение HTML страницы
 export async function getPageHTML() {
     const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
@@ -11,7 +13,7 @@ export async function getPageHTML() {
 
     const length = html.length;
 
-    if (length > 1000) {
+    if (length > CONFIG.MAX_HTML_SIZE) {
         html = null;
     }
     

@@ -33,6 +33,15 @@ function handleClick(element, list) {
 
     filterItems(object, list);
 
+    const totalChars = list.reduce((sum, obj) => sum + obj.element.length, 0);
+    const newTotalChars = totalChars + object.element.length;
+
+    if (newTotalChars > CONFIG.MAX_HTML_SIZE) {
+        filterItems(object, list);
+        alert("Превышен максимальный размер выбранных элементов. Пожалуйста, удалите некоторые элементы.");
+        return; // не добавляем элемент
+    }
+
     element.classList.toggle('selected-indicator');
     console.log('Элемент добавлен в список:', element, 'XPath:', xpath);
 }

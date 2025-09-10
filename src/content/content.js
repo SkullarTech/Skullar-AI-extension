@@ -15,7 +15,11 @@ function addButton() {
 }
 
 // Основная логика
-function main() {
+async function main() {
+
+    const configModuleUrl = chrome.runtime.getURL('src/constants/config.js');
+    const { CONFIG } = await import(configModuleUrl);
+    window.CONFIG = CONFIG;
 
     initializeHandlers(list, () => isHighlightingEnabled);
 
