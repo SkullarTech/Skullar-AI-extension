@@ -15,6 +15,9 @@
     align-items: center;
     justify-content: center;
 
+    aspect-ratio: 1 / 1;   
+    width: 5%;
+
     top: 20px;
     left: 20px;
 
@@ -46,8 +49,8 @@
 }
 
 #launch-button img {
-    width: 24px;
-    height: 24px;
+    width: 80%;
+    height: auto;
     filter: brightness(0) invert(1); /* Инверсия для белого img, чтобы сделать его видимым */
 }
 
