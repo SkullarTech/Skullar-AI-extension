@@ -33,8 +33,15 @@ notification_btn.addEventListener("click", () => {
 });
 
 settings_btn.addEventListener("click", () => {
-    settings.classList.add('active');
-    settings_btn.classList.add('active');
+    if (settings.classList.contains('active')) {
+
+        settings.classList.remove('active');
+        settings_btn.classList.remove('active');
+
+    } else {
+        settings.classList.add('active');
+        settings_btn.classList.add('active');
+    }
 });
 
 settings.addEventListener("click", (event) => {
