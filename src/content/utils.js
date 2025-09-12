@@ -38,6 +38,13 @@ function filterItems(object, list) {
     console.log('Текущий список:', list);
 }
 
+function removeAttributesRecursive(element, attrList) {
+    attrList.forEach(attr => element.removeAttribute(attr));
+    for (let child of element.children) {
+        removeAttributesRecursive(child, attrList);
+    }
+}
+
 function clearSelectedIndicators(list) {
     document.querySelectorAll('.selected-indicator').forEach(el => {
         el.classList.remove('selected-indicator');

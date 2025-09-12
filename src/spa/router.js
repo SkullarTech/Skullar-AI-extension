@@ -38,5 +38,10 @@ async function renderBlock(container, route) {
     }
 }
 
+window.appNavigate = function(path) {
+    window.location.hash = path;
+    renderRoute(); 
+};
+
 window.addEventListener('hashchange', renderRoute);
 window.addEventListener('DOMContentLoaded', renderRoute);
